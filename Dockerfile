@@ -5,8 +5,11 @@ WORKDIR /usr/app
 
 
 # Install some dependencies
+COPY ./package.json ./
+COPY ./package-lock.json ./
+RUN npm ci
+
 COPY ./ ./
-RUN npm install
 
 # Start the application
 CMD ["npm", "start"]
